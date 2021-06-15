@@ -1,4 +1,4 @@
-# MovieDB native app 
+# Jokes app 
 ## Description:
 A react-native app that list jokes to the user and have him share the funny stuff with his friends..
 ### Installation:
