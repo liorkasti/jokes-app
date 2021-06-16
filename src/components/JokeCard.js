@@ -1,11 +1,11 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
-import { Button } from 'react-native-paper'
+import { Button as PaperButton } from 'react-native-paper'
 import { theme } from '../core/theme'
 
 export default function JokeCard({ mode, style, ...props }) {
   return (
-    <Button
+    <PaperButton
       style={[
         styles.button,
         mode === 'outlined' && { backgroundColor: theme.colors.surface },
@@ -13,7 +13,7 @@ export default function JokeCard({ mode, style, ...props }) {
       ]}
       labelStyle={styles.text}
       mode={mode}
-      {...props.content}
+      {...props}
     />
   )
 }
@@ -26,6 +26,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
+    width: '100%',
+    height: '100%',
     fontSize: 15,
     lineHeight: 26,
   },

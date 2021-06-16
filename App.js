@@ -8,8 +8,7 @@ import {
   LoginScreen,
   RegisterScreen,
   Dashboard,
-  JokeList,
-  TwopartJokes,
+  JokeList
 } from './src/screens'
 
 const Stack = createStackNavigator()
@@ -19,7 +18,8 @@ export default function App() {
     <Provider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="StartScreen"
+          // initialRouteName="StartScreen"
+          initialRouteName="Dashboard"
           screenOptions={{
             headerShown: false,
           }}
@@ -29,7 +29,6 @@ export default function App() {
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="JokeList" component={JokeList} />
-          <Stack.Screen name="TwopartJokes" component={TwopartJokes} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

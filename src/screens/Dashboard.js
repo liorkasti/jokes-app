@@ -6,23 +6,20 @@ import Logo from '../components/Logo'
 import Header from '../components/Header'
 import Button from '../components/Button'
 
-import data from '../data/jokes.json'
-
 export default function Dashboard({ navigation }) {
   return (
     <Background>
       <Logo />
       <Header>Jokes Gallery</Header>
       <Button
-        // mode="outlined"
-        onPress={() => navigation.navigate('JokeList')
+        mode="outlined"
+        onPress={() => navigation.navigate('JokeList', {jokeType: 'single'})
         }
       >Single Jokes
       </Button>
       <Button
-        // mode="outlined"
-        onPress={() => navigation.navigate('TwopartJokes')
-      }
+        mode="outlined"
+        onPress={() => navigation.navigate('JokeList', {jokeType: 'twoparts'})      }
       >Two-part Jokes
       </Button>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TouchableOpacity, StyleSheet, View } from 'react-native'
+import { TouchableOpacity, StyleSheet, View, SafeAreaView } from 'react-native'
 import { Text } from 'react-native-paper'
 import Background from '../components/Background'
 import Logo from '../components/Logo'
@@ -34,26 +34,30 @@ export default function LoginScreen({ navigation }) {
       <BackButton goBack={navigation.goBack} />
       <Logo />
       <Header>Welcome back.</Header>
-      <TextInput
-        label="Phone"
-        returnKeyType="next"
-        value={phone.value}
-        onChangeText={(text) => setPhone({ value: text, error: '' })}
-        error={!!phone.error}
-        errorText={phone.error}
-        autoCapitalize="none"
-      // autoCompleteType="phone"
-      // textContentType="phone"
-      // keyboardType="phone"
-      />
-      <TextInput
-        label="ID"
-        returnKeyType="done"
-        value={id.value}
-        onChangeText={(text) => setID({ value: text, error: '' })}
-        error={!!id.error}
-        errorText={id.error}
-      />
+      {/* <View style={styles.container}>
+        <SafeAreaView> */}
+          <TextInput
+            label="Phone"
+            returnKeyType="next"
+            value={phone.value}
+            onChangeText={(text) => setPhone({ value: text, error: '' })}
+            error={!!phone.error}
+            errorText={phone.error}
+            autoCapitalize="none"
+          // autoCompleteType="phone"
+          // textContentType="phone"
+          // keyboardType="phone"
+          />
+          <TextInput
+            label="ID"
+            returnKeyType="done"
+            value={id.value}
+            onChangeText={(text) => setID({ value: text, error: '' })}
+            error={!!id.error}
+            errorText={id.error}
+          />
+        {/* </SafeAreaView>
+      </View> */}
       <Button mode="contained" onPress={onLoginPressed}>
         Login
       </Button>
@@ -62,7 +66,10 @@ export default function LoginScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    marginTop: 40,
+  },
   row: {
     flexDirection: 'row',
     marginTop: 4,

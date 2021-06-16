@@ -56,5 +56,35 @@
         },
         "id": 36,
         "error": false
+    },
+    {
+        "category": "Programming",
+        "type": "twopart",
+        "setup": "Genders are a lot like booleans.",
+        "delivery": "There's only two of them.",
+        "flags": {
+            "nsfw": false,
+            "religious": false,
+            "political": false,
+            "racist": false,
+            "sexist": true
+        },
+        "id": 47,
+        "error": false
+    },
+    {
+        "category": "Programming",
+        "type": "single",
+        "joke": "The generation of random numbers is too important to be left to chance.",
+        "flags": {
+            "nsfw": false,
+            "religious": false,
+            "political": false,
+            "racist": false,
+            "sexist": false
+        },
+        "id": 39,
+        "error": false
     }
+
 ]
