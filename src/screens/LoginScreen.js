@@ -9,7 +9,7 @@ import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
 import { theme } from '../core/theme'
 import { phoneValidator } from '../helpers/phoneValidator'
-import { idValidator } from '../helpers/idValidator'
+import { idValidator,  } from '../helpers/idValidator'
 
 export default function LoginScreen({ navigation }) {
   const [phone, setPhone] = useState({ value: '', error: '' })

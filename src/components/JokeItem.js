@@ -10,14 +10,11 @@ import JokeDetails from './JokeDetails'
 
 const JokeItem = (props) => {
   const [showDetails, setShowDetails] = useState(false)
-  const [details, setDetails] = useState([])
 
   useEffect(() => {
-    // console.log('log params: ', JSON.stringify(props))
-    // if (props.category) { setDetails([...details, { Category: props.category }]) }
-    // console.log('log details: ', JSON.stringify(details))
-
   }, [])
+
+  let deliveryFlag = false;
 
   const fetchDetails = async (item) => {
     try {
@@ -45,64 +42,71 @@ const JokeItem = (props) => {
         style={styles.container}
         // mode="outlined"
         onPress={() => {
-          setShowDetails(!showDetails)
+          setShowDetails(!showDetails),
+            console.log('\n\nlog propssetups: ', (props.setup))
           // fetchDetails(props)
         }}
       >
-        {props.joke ?
-          < JokeText >
+        {props.type === 'single' ?
+          < JokeText deliveryFlag={deliveryFlag}>
             {props.joke}
           </JokeText>
           :
           <>
-            < JokeText >
-              {props.setups}
-            </JokeText>
-            < JokeText >
-              {props.delivery}
+            < JokeText deliveryFlag={deliveryFlag}>
+              {props.setup}
             </JokeText>
           </>
         }
+
+        {!showDetails &&
+          <Paragraph style={styles.title}>
+            Joke details
+          </Paragraph>
+        }
+
         {showDetails &&
           <>
-            <Paragraph>
-              <Text style={styles.title}>
-                Joke details:
-                {/* {details} */}
-              </Text>
-              <Paragraph style={styles.title}>Category: {props.category}, </Paragraph>
-              <Paragraph style={styles.title}>Flags:
-                {props.flags.sexist &&
-                  <Paragraph style={styles.title}>Sexist, </Paragraph>
-                }
-                {props.flags.nsfw &&
-                  <Paragraph style={styles.title}>nsfw, </Paragraph>
-                }
-                {props.flags.religious &&
-                  <Paragraph style={styles.title}>religious, </Paragraph>
-                }
-                {props.flags.political &&
-                  <Paragraph style={styles.title}>political, </Paragraph>
-                }
-                {props.flags.racist &&
-                  <Paragraph style={styles.title}>racist, </Paragraph>
-                }
-              </Paragraph>
-              <TouchableOpacity
-                onPress={() => {
-                  //TODO: share function            
-                }}
-              >
-                <Icon name='share' style={styles.iconActive} />
-              </TouchableOpacity >
-              <TouchableOpacity
-                onPress={() => {
-                  //TODO: suggested function            
-                }}
-              >
-                {/* <Text style={styles.title}>Suggested: </Text> */}
-              </TouchableOpacity >
-            </Paragraph>
+            < JokeText deliveryFlag={true} showDetails={showDetails}>
+              {props.delivery}
+            </JokeText>
+
+
+            <Paragraph style={styles.title}>Category: {props.category} </Paragraph>
+            {props.flags.sexist || props.flags.nsfw || props.flags.religious || props.flags.political || props.flags.racist &&
+              <Paragraph style={styles.title}>Flags: </Paragraph>
+            }
+            {props.flags.sexist &&
+              <Text style={styles.title}>Sexist, </Text>
+            }
+            {props.flags.nsfw &&
+              <Text style={styles.title}>nsfw, </Text>
+            }
+            {props.flags.religious &&
+              <Text style={styles.title}>religious, </Text>
+            }
+            {props.flags.political &&
+              <Text style={styles.title}>political, </Text>
+            }
+            {props.flags.racist &&
+              <Text style={styles.title}>racist, </Text>
+            }
+
+            <TouchableOpacity
+              onPress={() => {
+                //TODO: share function            
+              }}
+            >
+              {/* <Icon name='share' style={styles.iconActive} /> */}
+            </TouchableOpacity >
+            <TouchableOpacity
+              onPress={() => {
+                //TODO: suggested function            
+              }}
+            >
+              {/* <Text style={styles.title}>Suggested: </Text> */}
+            </TouchableOpacity >
+
           </>
         }
       </TouchableOpacity >
@@ -123,16 +127,13 @@ const styles = StyleSheet.create({
   },
   title: {
     color: theme.colors.secondary,
-    paddingVertical: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
     fontWeight: 'bold',
     fontSize: 14,
     fontWeight: '300',
-    textAlign: 'left',
-    paddingTop: 20,
+    textAlign: 'center',
   },
-
 });
 
 export default JokeItem;

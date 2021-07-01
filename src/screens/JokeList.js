@@ -7,45 +7,29 @@ import Logo from '../components/Logo'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import JokeItem from '../components/JokeItem';
-import data from '../data/jokes.json'
+// import data from '../services/data/jokes.json'
 
 export default function JokeList({ route, navigation }) {
 
   useEffect(() => {
-    // console.log('log params: ', route.params)
+    // console.log('log params: ', route.params.jokes)
   }, [])
 
   return (
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      {route.params.jokeType === 'single' &&
+      {route.params.jokes &&
         <>
           <Header>Single Jokes</Header>
           <FlatList
-            data={data.filter(joke => (joke.type === 'single'))}
+            data={route.params.jokes}
             renderItem={({ item }) => (
               <JokeItem
                 {...item}
-                data={data}
+                data={route.params.jokes}
               />
             )}
-            // keyExtractor={item => item.id}
-            keyExtractor={({ id }) => id}
-          />
-        </>
-      }{route.params.jokeType === 'twopart' &&
-        <>
-          <Header>Two Part Jokes</Header>
-          <FlatList
-            data={data.filter(joke => (joke.type === 'twopart'))}
-            renderItem={({ item }) => (
-              <JokeItem
-                {...item}
-                data={data}
-              />
-            )}
-            // keyExtractor={item => item.id}
             keyExtractor={({ id }) => id}
           />
         </>
