@@ -25,7 +25,6 @@ export default function useFetch() {
                     flags: item.flags, error: item.error
                 }])
 
-
                 if (item.type === 'twopart') {
                     twopart.push({
                         id: item.id, category: item.category,
@@ -46,6 +45,7 @@ export default function useFetch() {
         setTwopart(twopart)
         setSingle(single)
         setLoaded(true)
+        // console.log('data: ', data);
     }
 
     //TODO: use init function instead of getData and wrap it with Provider

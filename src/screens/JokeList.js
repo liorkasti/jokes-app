@@ -7,7 +7,7 @@ import Logo from '../components/Logo'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import JokeItem from '../components/JokeItem';
-// import data from '../services/data/jokes.json'
+// import data from '../data/jokes.json'
 
 export default function JokeList({ route, navigation }) {
 

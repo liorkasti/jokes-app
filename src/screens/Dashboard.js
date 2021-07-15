@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
+import { Image, StyleSheet } from 'react-native'
 
-import useFetch from '../services/hooks/useFetch';
+import useFetch from '../hooks/useFetch';
 import Background from '../components/Background'
 import Logo from '../components/Logo'
 import Header from '../components/Header'
 import Button from '../components/Button'
+import CategoriesList from '../components/CategoriesList'
 
 export default function Dashboard({ navigation }) {
 
@@ -12,6 +14,9 @@ export default function Dashboard({ navigation }) {
 
   useEffect(() => {
     init();
+    // console.log('data: ', data);
+    // console.log('single: ', single);
+    // console.log('twopart: ', twopart);
   }, [])
 
 
@@ -31,6 +36,7 @@ export default function Dashboard({ navigation }) {
       >Two-part Jokes
       </Button>
 
+      {/* <CategoriesList /> */}
       <Button
         mode="outlined"
         onPress={() =>
@@ -45,3 +51,11 @@ export default function Dashboard({ navigation }) {
     </Background>
   )
 }
+
+const styles = StyleSheet.create({
+  image: {
+    width: 110,
+    height: 110,
+    marginBottom: 12,
+  },
+})
