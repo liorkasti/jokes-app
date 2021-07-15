@@ -24,22 +24,22 @@ const NavigationTabs = (props) => {
 
     return (
         <Tabs.Navigator
-            screenOptions={({ route }) => ({
+            // screenOptions={({ route }) => ({
 
-                tabBarIcon: ({ COLORS }) => {
-                    let iconName = 'like';
+            //     tabBarIcon: ({ COLORS }) => {
+            //         let iconName = 'like';
 
-                    // if (route.name === 'Movies') {
-                    //     iconName = 'film';
-                    // } else if (route.name === 'TV Shows') {
-                    //     iconName = 'like';
-                    // } else if (route.name === 'Search') {
-                    //     iconName = 'search';
-                    // }
+            //         // if (route.name === 'Movies') {
+            //         //     iconName = 'film';
+            //         // } else if (route.name === 'TV Shows') {
+            //         //     iconName = 'like';
+            //         // } else if (route.name === 'Search') {
+            //         //     iconName = 'search';
+            //         // }
 
-                    return <Icon name={iconName} color={COLORS} size={20} />;
-                },
-            })}
+            //         return <Icon name={iconName} color={COLORS} size={20} />;
+            //     },
+            // })}
             tabBarOptions={{
                 activeTintColor: theme.colors.thirdary,
                 inactiveTintColor: 'white',
