@@ -9,7 +9,6 @@ import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import RootStackScreen from './RootStackScreen';
 import { StartScreen, LoginScreen, RegisterScreen, Dashboard, JokeList } from '../screens'
 
 const HomeStack = createStackNavigator();
@@ -46,7 +45,7 @@ const MainTabScreen = () => (
       />
       <Tab.Screen
         name="Profile"
-        component={RootStackScreen}
+        component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
           tabBarColor: '#694fad',
