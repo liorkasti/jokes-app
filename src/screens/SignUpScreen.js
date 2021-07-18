@@ -19,7 +19,7 @@ import Feather from 'react-native-vector-icons/Feather';
 const SignInScreen = ({ navigation }) => {
 
     useEffect(() => {
-        console.log('log params: ', data)
+        // console.log('log params: ', data)
     }, []);
 
     const [data, setData] = React.useState({

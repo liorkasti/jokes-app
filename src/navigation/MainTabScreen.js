@@ -9,6 +9,8 @@ import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import RootStackScreen from './RootStackScreen';
+import { StartScreen, LoginScreen, RegisterScreen, Dashboard, JokeList } from '../screens'
 
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
@@ -17,11 +19,11 @@ const Tab = createMaterialBottomTabNavigator();
 
 const MainTabScreen = () => (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Dashboard"
       activeColor="#fff"
     >
       <Tab.Screen
-        name="Home"
+        name="Dashboard"
         component={HomeStackScreen}
         options={{
           tabBarLabel: 'Home',
@@ -44,7 +46,7 @@ const MainTabScreen = () => (
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={RootStackScreen}
         options={{
           tabBarLabel: 'Profile',
           tabBarColor: '#694fad',
@@ -79,7 +81,7 @@ const HomeStackScreen = ({navigation}) => (
         fontWeight: 'bold'
         }
     }}>
-        <HomeStack.Screen name="Home" component={HomeScreen} options={{
+        <HomeStack.Screen name="Home" component={Dashboard} options={{
         title:'Overview',
         headerLeft: () => (
             <Icon.Button name="ios-menu" size={25} backgroundColor="#009387" onPress={() => navigation.openDrawer()}></Icon.Button>

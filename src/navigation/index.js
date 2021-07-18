@@ -157,6 +157,7 @@ export default function AppNavigator() {
     <PaperProvider theme={theme}>
       <AuthContext.Provider value={authContext}>
         <NavigationContainer theme={theme}>
+          {/* {loginState.userToken !== null ? ( */}
           {loginState.userToken !== null ? (
             <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
               <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
@@ -166,7 +167,13 @@ export default function AppNavigator() {
             </Drawer.Navigator>
           )
             :
-            <RootStackScreen />
+            // <RootStackScreen />
+            <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+            <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+            <Drawer.Screen name="SupportScreen" component={SupportScreen} />
+            <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+            <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
+          </Drawer.Navigator>
           }
         </NavigationContainer>
       </AuthContext.Provider>

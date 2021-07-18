@@ -19,6 +19,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import{ AuthContext } from '../components/context';
+import { StartScreen, LoginScreen, RegisterScreen, Dashboard, JokeList } from '../screens'
 
 export function DrawerContent(props) {
 
@@ -34,13 +35,13 @@ export function DrawerContent(props) {
                         <View style={{flexDirection:'row',marginTop: 15}}>
                             <Avatar.Image 
                                 source={{
-                                    uri: 'https://api.adorable.io/avatars/50/abott@adorable.png'
+                                    uri: 'https://media-exp3.licdn.com/dms/image/C4D35AQFNMbgDHdS0zA/profile-framedphoto-shrink_400_400/0/1595845339359?e=1626706800&v=beta&t=e4BAkd72ohTR1ZnLt4vD3Z5ItdMFabcLbR4xxulwrZQ'
                                 }}
                                 size={50}
                             />
                             <View style={{marginLeft:15, flexDirection:'column'}}>
-                                <Title style={styles.title}>John Doe</Title>
-                                <Caption style={styles.caption}>@j_doe</Caption>
+                                <Title style={styles.title}>Lior Kastenbaum</Title>
+                                <Caption style={styles.caption}>Github @Kasti</Caption>
                             </View>
                         </View>
 
@@ -66,7 +67,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Home"
-                            onPress={() => {props.navigation.navigate('Home')}}
+                            onPress={() => {props.navigation.navigate('Dashboard')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
