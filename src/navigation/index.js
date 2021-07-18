@@ -1,10 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import {
-  NavigationContainer,
-  DefaultTheme as NavigationDefaultTheme,
-  DarkTheme as NavigationDarkTheme
-} from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme as NavigationDefaultTheme, DarkTheme as NavigationDarkTheme } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack'
 import {
@@ -15,7 +11,6 @@ import {
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { AuthContext } from '../components/context';
-
 import { DrawerContent } from './DrawerContent';
 import MainTabScreen from './MainTabScreen';
 import RootStackScreen from './RootStackScreen';
@@ -141,7 +136,7 @@ export default function AppNavigator() {
       } catch (e) {
         console.log(e);
       }
-      // console.log('user token: ', userToken);
+      console.log('user token: ', userToken);
       dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
     }, 1000);
   }, []);
@@ -157,7 +152,7 @@ export default function AppNavigator() {
     <PaperProvider theme={theme}>
       <AuthContext.Provider value={authContext}>
         <NavigationContainer theme={theme}>
-          {/* {loginState.userToken !== null ? ( */}
+          {/* {loginState.userToken === null ? ( */}
           {loginState.userToken !== null ? (
             <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
               <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />

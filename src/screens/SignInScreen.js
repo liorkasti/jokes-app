@@ -17,9 +17,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import { useTheme } from 'react-native-paper';
 
 import { AuthContext } from '../components/context';
-import { MainTabScreen } from '../navigation/MainTabScreen';
 
-import Users from '../model/users';
+import Users from '../data/users';
 
 const SignInScreen = ({ navigation }) => {
 
@@ -214,7 +213,6 @@ const SignInScreen = ({ navigation }) => {
                 <View style={styles.button}>
                     <TouchableOpacity
                         style={styles.signIn}
-                        onPress={() => navigation.navigate('SignUpScreen')}
                         onPress={() => { loginHandle(data.username, data.password) }}
                     >
                         <LinearGradient
@@ -238,19 +236,6 @@ const SignInScreen = ({ navigation }) => {
                         <Text style={[styles.textSign, {
                             color: '#009387'
                         }]}>Sign Up</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('MainTabScreen')}
-                        style={[styles.signIn, {
-                            borderColor: '#009387',
-                            borderWidth: 1,
-                            marginTop: 15
-                        }]}
-                    >
-                        <Text style={[styles.textSign, {
-                            color: '#009387'
-                        }]}>Guesst</Text>
                     </TouchableOpacity>
                 </View>
             </Animatable.View>

@@ -36,7 +36,6 @@ export default function Dashboard({ navigation }) {
       >Two-part Jokes
       </Button>
 
-      {/* <CategoriesList /> */}
       <Button
         mode="outlined"
         onPress={() =>
