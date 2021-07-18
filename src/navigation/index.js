@@ -3,24 +3,21 @@ import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer, DefaultTheme as NavigationDefaultTheme, DarkTheme as NavigationDarkTheme } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack'
-import {
-  Provider as PaperProvider,
-  DefaultTheme as PaperDefaultTheme,
-  DarkTheme as PaperDarkTheme
-} from 'react-native-paper';
+import { Provider as PaperProvider, DefaultTheme as PaperDefaultTheme, DarkTheme as PaperDarkTheme } from 'react-native-paper';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { AuthContext } from '../components/context';
 import { DrawerContent } from './DrawerContent';
-import MainTabScreen from './MainTabScreen';
-import RootStackScreen from './RootStackScreen';
-import SupportScreen from '../screens/SupportScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import BookmarkScreen from '../screens/BookmarkScreen';
+import TabNavigator from './TabNavigator';
 
 import NavigationTabs from './tabs'
 import { theme } from '../core/theme'
-import { StartScreen, LoginScreen, RegisterScreen, Dashboard, JokeList } from '../screens'
+import {
+  StartScreen, LoginScreen, Dashboard, JokeForm, JokeList, BookmarkScreen,
+  DetailsScreen, ExploreScreen, HomeScreen, ProfileScreen, RegisterScreen,
+  SettingsScreen, SignInScreen, SignUpScreen, SplashScreen, SupportScreen
+}
+  from '../screens'
 
 // const Stack = createStackNavigator()
 const Drawer = createDrawerNavigator();
@@ -155,10 +152,12 @@ export default function AppNavigator() {
           {/* {loginState.userToken === null ? ( */}
           {loginState.userToken !== null ? (
             <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-              <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+              <Drawer.Screen name="HomeDrawer" component={TabNavigator} />
               <Drawer.Screen name="SupportScreen" component={SupportScreen} />
               <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
               <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
+              <Drawer.Screen name="JokeList" component={JokeList} />
+              <Drawer.Screen name="JokeForm" component={JokeForm} />
             </Drawer.Navigator>
           )
             :

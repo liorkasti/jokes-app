@@ -16,7 +16,7 @@ const DetailsStack = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
 
-const MainTabScreen = () => (
+const TabNavigator = () => (
     <Tab.Navigator
       initialRouteName="Dashboard"
       activeColor="#fff"
@@ -68,7 +68,7 @@ const MainTabScreen = () => (
     </Tab.Navigator>
 );
 
-export default MainTabScreen;
+export default TabNavigator;
 
 const HomeStackScreen = ({navigation}) => (
 <HomeStack.Navigator screenOptions={{

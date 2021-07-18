@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, Image } from 'react-native'
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import { addJoke } from '../actions/joke';
 import Button from '../components/Button'
@@ -9,9 +9,9 @@ export default function JokeForm({ navigation }) {
 
   const [joke, setJoke] = useState('')
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const submitJoke = (joke) => dispatch(addJoke(joke))
+  // const submitJoke = (joke) => dispatch(addJoke(joke))
 
   useEffect(() => {
     console.log('myJokes: ', myJokes);
