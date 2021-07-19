@@ -22,6 +22,8 @@ const SignInScreen = ({ navigation }) => {
         // console.log('log params: ', data)
     }, []);
 
+    // TODO: Add firebase connection method
+    // TODO: Add validation to input user email (unique key) and password
     const [data, setData] = React.useState({
         username: '',
         password: '',
@@ -192,6 +194,7 @@ const SignInScreen = ({ navigation }) => {
                     <View style={styles.button}>
                         <TouchableOpacity
                             style={styles.signIn}
+                            // TODO: Add user
                             onPress={() => { }}
                         >
                             <LinearGradient

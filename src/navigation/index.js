@@ -16,8 +16,7 @@ import {
   StartScreen, LoginScreen, Dashboard, JokeForm, JokeList, BookmarkScreen,
   DetailsScreen, ExploreScreen, HomeScreen, ProfileScreen, RegisterScreen,
   SettingsScreen, SignInScreen, SignUpScreen, SplashScreen, SupportScreen
-}
-  from '../screens'
+} from '../screens'
 
 // const Stack = createStackNavigator()
 const Drawer = createDrawerNavigator();
@@ -141,6 +140,7 @@ export default function AppNavigator() {
   if (loginState.isLoading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        {/* TODO: Add custom Animated Splashscreen Loader  */}
         <ActivityIndicator size="large" />
       </View>
     );
