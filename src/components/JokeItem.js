@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, TouchableRipple } from 'react-native';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Share from 'react-native-share';
 
 import { theme } from '../core/theme'
 import Paragraph from './Paragraph'
 import JokeText from './JokeText'
 import JokeCard from './JokeCard'
 import JokeDetails from './JokeDetails'
+import files from '../assets/filesBase64';
 
 const JokeItem = (props) => {
   const [showDetails, setShowDetails] = useState(false)
 
   useEffect(() => {
+    console.log('' + props.joke)
   }, [])
 
   let deliveryFlag = false;
@@ -36,6 +39,27 @@ const JokeItem = (props) => {
     }
   };
 
+  const myCustomShare = async () => {
+    if(props.type === 'single'){
+      const shareOptions = {
+        message: `Y! \n ${props.joke}`,
+        url: files.appLogo,
+      }
+    }else{
+      const shareOptions = {
+        message: `Y! \n setup: ${props.setup}\n\n\n delivery: ${props.delivery}`,
+        url: files.appLogo,
+      }
+    }
+
+    try {
+      const ShareResponse = await Share.open(shareOptions);
+      console.log(JSON.stringify(ShareResponse));
+    } catch (error) {
+      console.log('Error => ', error);
+    }
+  };
+
   return (
     <>
       <TouchableOpacity
@@ -48,9 +72,11 @@ const JokeItem = (props) => {
         }}
       >
         {props.type === 'single' ?
-          < JokeText deliveryFlag={deliveryFlag}>
-            {props.joke}
-          </JokeText>
+          <>
+            < JokeText deliveryFlag={deliveryFlag}>
+              {props.joke}
+            </JokeText>
+          </>
           :
           <>
             < JokeText deliveryFlag={deliveryFlag}>
@@ -59,57 +85,58 @@ const JokeItem = (props) => {
           </>
         }
 
+        
+        <TouchableOpacity onPress={myCustomShare}>
+          <View style={styles.menuItem}>
+            <Text style={styles.menuItemText}>Share with Your Friends</Text>
+            <Icon name="share-outline" color="#009387" size={25} />
+          </View>
+        </TouchableOpacity>
+
         {!showDetails &&
           <Paragraph style={styles.title}>
             Joke details
           </Paragraph>
         }
-
-        {showDetails &&
-          <>
-            < JokeText deliveryFlag={true} showDetails={showDetails}>
-              {props.delivery}
-            </JokeText>
-
-
-            <Paragraph style={styles.title}>Category: {props.category} </Paragraph>
-            {props.flags.sexist || props.flags.nsfw || props.flags.religious || props.flags.political || props.flags.racist &&
-              <Paragraph style={styles.title}>Flags: </Paragraph>
-            }
-            {props.flags.sexist &&
-              <Text style={styles.title}>Sexist, </Text>
-            }
-            {props.flags.nsfw &&
-              <Text style={styles.title}>nsfw, </Text>
-            }
-            {props.flags.religious &&
-              <Text style={styles.title}>religious, </Text>
-            }
-            {props.flags.political &&
-              <Text style={styles.title}>political, </Text>
-            }
-            {props.flags.racist &&
-              <Text style={styles.title}>racist, </Text>
-            }
-
-            <TouchableOpacity
-              onPress={() => {
-                //TODO: share function            
-              }}
-            >
-              {/* <Icon name='share' style={styles.iconActive} /> */}
-            </TouchableOpacity >
-            <TouchableOpacity
-              onPress={() => {
-                //TODO: suggested function            
-              }}
-            >
-              {/* <Text style={styles.title}>Suggested: </Text> */}
-            </TouchableOpacity >
-
-          </>
-        }
       </TouchableOpacity >
+
+      {showDetails &&
+        <>
+          < JokeText deliveryFlag={true} showDetails={showDetails}>
+            {props.delivery}
+          </JokeText>
+
+
+          <Paragraph style={styles.title}>Category: {props.category} </Paragraph>
+          {props.flags.sexist || props.flags.nsfw || props.flags.religious || props.flags.political || props.flags.racist &&
+            <Paragraph style={styles.title}>Flags: </Paragraph>
+          }
+          {props.flags.sexist &&
+            <Text style={styles.title}>Sexist, </Text>
+          }
+          {props.flags.nsfw &&
+            <Text style={styles.title}>nsfw, </Text>
+          }
+          {props.flags.religious &&
+            <Text style={styles.title}>religious, </Text>
+          }
+          {props.flags.political &&
+            <Text style={styles.title}>political, </Text>
+          }
+          {props.flags.racist &&
+            <Text style={styles.title}>racist, </Text>
+          }
+
+          <TouchableOpacity
+            onPress={() => {
+              //TODO: More jokes suggeste function            
+            }}
+          >
+            {/* <Text style={styles.title}>Suggested: </Text> */}
+          </TouchableOpacity >
+
+        </>
+      }
     </>
   );
 
@@ -133,6 +160,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '300',
     textAlign: 'center',
+  },
+  menuItem: {
+    flexDirection: 'row',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
   },
 });
 

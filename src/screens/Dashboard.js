@@ -23,7 +23,7 @@ export default function Dashboard({ navigation }) {
   return (
     <Background>
       <Logo />
-      <Header>Jokes Gallery</Header>
+      <Header>Jokes Category</Header>
       <Button
         mode="outlined"
         onPress={() => navigation.navigate('JokeList', { jokes: single })
@@ -36,7 +36,7 @@ export default function Dashboard({ navigation }) {
       >Two-part Jokes
       </Button>
 
-      <Button
+      {/* <Button
         mode="outlined"
         onPress={() =>
           navigation.reset({
@@ -46,7 +46,7 @@ export default function Dashboard({ navigation }) {
         }
       >
         Logout
-      </Button>
+      </Button> */}
     </Background>
   )
 }

@@ -9,12 +9,14 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { AuthContext } from '../components/context';
 import { DrawerContent } from './DrawerContent';
 import TabNavigator from './TabNavigator';
+import RootStackScreen from './RootStackScreen';
 
 import NavigationTabs from './tabs'
 import { theme } from '../core/theme'
 import {
   StartScreen, LoginScreen, Dashboard, JokeForm, JokeList, BookmarkScreen,
-  DetailsScreen, ExploreScreen, HomeScreen, ProfileScreen, RegisterScreen,
+  CardListScreen, CardItemDetails, DetailsScreen, EditProfileScreen, ExploreScreen,
+  HomeScreen, MapTestScreen, NotificationScreen, RegisterScreen, ProfileScreen,
   SettingsScreen, SignInScreen, SignUpScreen, SplashScreen, SupportScreen
 } from '../screens'
 

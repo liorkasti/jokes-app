@@ -12,6 +12,8 @@ target 'jokes' do
     :hermes_enabled => false
   )
 
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
   target 'jokesTests' do
     inherit! :complete
     # Pods for testing
