@@ -21,7 +21,7 @@ export default function JokeList({ route, navigation }) {
       <Logo />
       {route.params.jokes &&
         <>
-          <Header>Single Jokes</Header>
+          <Header>Yo! Jokes</Header>
           <FlatList
             data={route.params.jokes}
             renderItem={({ item }) => (

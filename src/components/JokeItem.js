@@ -40,12 +40,12 @@ const JokeItem = (props) => {
   };
 
   const myCustomShare = async () => {
-    if(props.type === 'single'){
+    if (props.type === 'single') {
       const shareOptions = {
         message: `Y! \n ${props.joke}`,
         url: files.appLogo,
       }
-    }else{
+    } else {
       const shareOptions = {
         message: `Y! \n setup: ${props.setup}\n\n\n delivery: ${props.delivery}`,
         url: files.appLogo,
@@ -85,7 +85,7 @@ const JokeItem = (props) => {
           </>
         }
 
-        
+
         <TouchableOpacity onPress={myCustomShare}>
           <View style={styles.menuItem}>
             <Text style={styles.menuItemText}>Share with Your Friends</Text>
@@ -93,50 +93,50 @@ const JokeItem = (props) => {
           </View>
         </TouchableOpacity>
 
-        {!showDetails &&
+        {/* {!showDetails &&
           <Paragraph style={styles.title}>
             Joke details
           </Paragraph>
+        } 
+        */}
+        {showDetails && props.type === 'twopart' &&
+          <>
+            < JokeText deliveryFlag={true} showDetails={showDetails}>
+              {props.delivery}
+            </JokeText>
+
+
+            {/* <Paragraph style={styles.title}>Category: {props.category} </Paragraph>
+            {props.flags.sexist || props.flags.nsfw || props.flags.religious || props.flags.political || props.flags.racist &&
+              <Paragraph style={styles.title}>Flags: </Paragraph>
+            }
+            {props.flags.sexist &&
+              <Text style={styles.title}>Sexist  </Text>
+            }
+            {props.flags.nsfw &&
+              <Text style={styles.title}>nsfw  </Text>
+            }
+            {props.flags.religious &&
+              <Text style={styles.title}>religious  </Text>
+            }
+            {props.flags.political &&
+              <Text style={styles.title}>political  </Text>
+            }
+            {props.flags.racist &&
+              <Text style={styles.title}>racist, </Text>
+            }
+
+            <TouchableOpacity
+              //TODO: More jokes suggeste function            
+              onPress={() => {
+              }}
+            >
+            </TouchableOpacity > */}
+
+          </>
         }
       </TouchableOpacity >
 
-      {showDetails &&
-        <>
-          < JokeText deliveryFlag={true} showDetails={showDetails}>
-            {props.delivery}
-          </JokeText>
-
-
-          <Paragraph style={styles.title}>Category: {props.category} </Paragraph>
-          {props.flags.sexist || props.flags.nsfw || props.flags.religious || props.flags.political || props.flags.racist &&
-            <Paragraph style={styles.title}>Flags: </Paragraph>
-          }
-          {props.flags.sexist &&
-            <Text style={styles.title}>Sexist, </Text>
-          }
-          {props.flags.nsfw &&
-            <Text style={styles.title}>nsfw, </Text>
-          }
-          {props.flags.religious &&
-            <Text style={styles.title}>religious, </Text>
-          }
-          {props.flags.political &&
-            <Text style={styles.title}>political, </Text>
-          }
-          {props.flags.racist &&
-            <Text style={styles.title}>racist, </Text>
-          }
-
-          <TouchableOpacity
-            onPress={() => {
-              //TODO: More jokes suggeste function            
-            }}
-          >
-            {/* <Text style={styles.title}>Suggested: </Text> */}
-          </TouchableOpacity >
-
-        </>
-      }
     </>
   );
 
