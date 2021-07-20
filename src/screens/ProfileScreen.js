@@ -13,7 +13,7 @@ const ProfileScreen = () => {
 
   const myCustomShare = async () => {
     const shareOptions = {
-      message: 'Order your next meal from FoodFinder App. I\'ve already ordered more than 10 meals on it.',
+      message: 'Yo! \n Wanna hear a Joke?',
       url: files.appLogo,
       // urls: [files.image1, files.image2]
     }
@@ -71,7 +71,7 @@ const ProfileScreen = () => {
         </View>
         <View style={styles.infoBox}>
           <Title>12</Title>
-          <Caption>Donates</Caption>
+          <Caption>Orders</Caption>
         </View>
       </View>
 
@@ -86,6 +86,12 @@ const ProfileScreen = () => {
           <View style={styles.menuItem}>
             <Icon name="credit-card" color="#FF6347" size={25} />
             <Text style={styles.menuItemText}>Payment</Text>
+          </View>
+        </TouchableRipple>
+        <TouchableRipple onPress={myCustomShare}>
+          <View style={styles.menuItem}>
+            <Icon name="share-outline" color="#FF6347" size={25}/>
+            <Text style={styles.menuItemText}>Tell Your Friends</Text>
           </View>
         </TouchableRipple>
       </View>
