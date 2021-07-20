@@ -104,35 +104,6 @@ const JokeItem = (props) => {
             < JokeText deliveryFlag={true} showDetails={showDetails}>
               {props.delivery}
             </JokeText>
-
-
-            {/* <Paragraph style={styles.title}>Category: {props.category} </Paragraph>
-            {props.flags.sexist || props.flags.nsfw || props.flags.religious || props.flags.political || props.flags.racist &&
-              <Paragraph style={styles.title}>Flags: </Paragraph>
-            }
-            {props.flags.sexist &&
-              <Text style={styles.title}>Sexist  </Text>
-            }
-            {props.flags.nsfw &&
-              <Text style={styles.title}>nsfw  </Text>
-            }
-            {props.flags.religious &&
-              <Text style={styles.title}>religious  </Text>
-            }
-            {props.flags.political &&
-              <Text style={styles.title}>political  </Text>
-            }
-            {props.flags.racist &&
-              <Text style={styles.title}>racist, </Text>
-            }
-
-            <TouchableOpacity
-              //TODO: More jokes suggeste function            
-              onPress={() => {
-              }}
-            >
-            </TouchableOpacity > */}
-
           </>
         }
       </TouchableOpacity >
@@ -163,8 +134,7 @@ const styles = StyleSheet.create({
   },
   menuItem: {
     flexDirection: 'row',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
+    paddingVertical: 8,
   },
 });
 
