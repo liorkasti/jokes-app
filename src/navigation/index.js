@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, StatusBar } from 'react-native';
 import { NavigationContainer, DefaultTheme as NavigationDefaultTheme, DarkTheme as NavigationDarkTheme } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createStackNavigator } from '@react-navigation/stack'
 import { Provider as PaperProvider, DefaultTheme as PaperDefaultTheme, DarkTheme as PaperDarkTheme } from 'react-native-paper';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -10,15 +9,9 @@ import { AuthContext } from '../components/context';
 import { DrawerContent } from './DrawerContent';
 import TabNavigator from './TabNavigator';
 import RootStackScreen from './RootStackScreen';
+import Background from '../components/Background'
 
-import NavigationTabs from './tabs'
-import { theme } from '../core/theme'
-import {
-  StartScreen, LoginScreen, Dashboard, JokeForm, JokeList, BookmarkScreen,
-  CardListScreen, CardItemDetails, DetailsScreen, EditProfileScreen, ExploreScreen,
-  HomeScreen, MapTestScreen, NotificationScreen, RegisterScreen, ProfileScreen,
-  SettingsScreen, SignInScreen, SignUpScreen, SplashScreen, SupportScreen
-} from '../screens'
+import { Dashboard, JokeForm, JokeList, SupportScreen } from '../screens'
 
 // const Stack = createStackNavigator()
 const Drawer = createDrawerNavigator();
@@ -141,23 +134,25 @@ export default function AppNavigator() {
 
   if (loginState.isLoading) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        {/* TODO: Add custom Animated Splashscreen Loader  */}
-        <ActivityIndicator size="large" />
-      </View>
+      <Background>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          {/* TODO: Add custom Animated Splashscreen Loader  */}
+          <ActivityIndicator size="large" />
+        </View>
+      </ Background>
     );
   }
   return (
     <PaperProvider theme={theme}>
+      <StatusBar backgroundColor='#009387' barStyle="light-content" />
       <AuthContext.Provider value={authContext}>
         <NavigationContainer theme={theme}>
           {/* {loginState.userToken === null ? ( */}
           {loginState.userToken !== null ? (
             <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
               <Drawer.Screen name="HomeDrawer" component={TabNavigator} />
+              <Drawer.Screen name="Dashboard" component={Dashboard} />
               <Drawer.Screen name="SupportScreen" component={SupportScreen} />
-              <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
-              <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
               <Drawer.Screen name="JokeList" component={JokeList} />
               <Drawer.Screen name="JokeForm" component={JokeForm} />
             </Drawer.Navigator>
@@ -170,26 +165,3 @@ export default function AppNavigator() {
     </PaperProvider>
   );
 }
-
-// return (
-//   <Provider theme={theme}>
-//     {/* <AppContainer /> */}
-//     <NavigationContainer>
-//       <Stack.Navigator
-//         // initialRouteName="StartScreen"
-//         // initialRouteName="Dashboard"
-//         screenOptions={{
-//           headerShown: false,
-//         }}
-//       >
-//         <Stack.Screen name="Dashboard" component={NavigationTabs} />
-//         {/* <Stack.Screen name="StartScreen" component={StartScreen} /> */}
-//         <Stack.Screen name="LoginScreen" component={LoginScreen} />
-//         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-//         {/* <Stack.Screen name="Dashboard" component={Dashboard} /> */}
-//         <Stack.Screen name="JokeList" component={JokeList} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   </Provider>
-// )
-// }

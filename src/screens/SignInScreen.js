@@ -97,10 +97,10 @@ const SignInScreen = ({ navigation }) => {
         });
 
         if (data.username.length == 0 || data.password.length == 0) {
-            Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
+            Alert.alert('Wrong Input!', 'Username or password field cannot be empty.\n\nPlease use a guest user: \nUsername: \'test\', \nPassword: \'qwer1234\'', [
                 { text: 'Okay' }
             ]);
-            return;
+            return true;
         }
 
         if (foundUser.length == 0) {

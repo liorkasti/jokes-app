@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Image, StyleSheet } from 'react-native'
+import { Image, StyleSheet, StatusBar } from 'react-native'
 
 import useFetch from '../hooks/useFetch';
 import Background from '../components/Background'
@@ -22,8 +22,9 @@ export default function Dashboard({ navigation }) {
 
   return (
     <Background>
+      <StatusBar backgroundColor='#FF6347' barStyle="light-content" />
       <Logo />
-      <Header>Jokes Category</Header>
+      <Header>Jokes Gallery</Header>
       <Button
         mode="outlined"
         onPress={() => navigation.navigate('JokeList', { jokes: single })
@@ -35,6 +36,8 @@ export default function Dashboard({ navigation }) {
         onPress={() => navigation.navigate('JokeList', { jokes: twopart })}
       >Two-part Jokes
       </Button>
+
+      <CategoriesList />
 
       {/* <Button
         mode="outlined"

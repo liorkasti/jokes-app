@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, SafeAreaView, StyleSheet } from 'react-native';
+import { View, SafeAreaView, StyleSheet, StatusBar } from 'react-native';
 import { Avatar, Title, Caption, Text, TouchableRipple, } from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Share from 'react-native-share';
 
 import files from '../assets/filesBase64';
+import Background from '../components/Background'
 
 const ProfileScreen = () => {
 
@@ -27,21 +28,20 @@ const ProfileScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-
+      <StatusBar backgroundColor='#009387' barStyle="light-content" />
+      <Background>
       <View style={styles.userInfoSection}>
         <View style={{ flexDirection: 'row', marginTop: 15 }}>
           <Avatar.Image
-            source={{
-              uri: 'https://api.adorable.io/avatars/80/abott@adorable.png',
-            }}
+            source={{ uri: 'https://media-exp3.licdn.com/dms/image/C4D35AQFNMbgDHdS0zA/profile-framedphoto-shrink_400_400/0/1595845339359?e=1626706800&v=beta&t=e4BAkd72ohTR1ZnLt4vD3Z5ItdMFabcLbR4xxulwrZQ', }}
             size={80}
           />
           <View style={{ marginLeft: 20 }}>
             <Title style={[styles.title, {
               marginTop: 15,
               marginBottom: 5,
-            }]}>John Doe</Title>
-            <Caption style={styles.caption}>@j_doe</Caption>
+            }]}>Lior Kastenbaum</Title>
+            <Caption style={styles.caption}>Github @Kasti</Caption>
           </View>
         </View>
       </View>
@@ -49,15 +49,15 @@ const ProfileScreen = () => {
       <View style={styles.userInfoSection}>
         <View style={styles.row}>
           <Icon name="map-marker-radius" color="#777777" size={20} />
-          <Text style={{ color: "#777777", marginLeft: 20 }}>Kolkata, India</Text>
+          <Text style={{ color: "#777777", marginLeft: 20 }}>Tel-Aviv, Israel</Text>
         </View>
         <View style={styles.row}>
           <Icon name="phone" color="#777777" size={20} />
-          <Text style={{ color: "#777777", marginLeft: 20 }}>+91-900000009</Text>
+          <Text style={{ color: "#777777", marginLeft: 20 }}>+972-544455848</Text>
         </View>
         <View style={styles.row}>
           <Icon name="email" color="#777777" size={20} />
-          <Text style={{ color: "#777777", marginLeft: 20 }}>john_doe@email.com</Text>
+          <Text style={{ color: "#777777", marginLeft: 20 }}>liorkasti@email.com</Text>
         </View>
       </View>
 
@@ -66,12 +66,12 @@ const ProfileScreen = () => {
           borderRightColor: '#dddddd',
           borderRightWidth: 1
         }]}>
-          <Title>₹140.50</Title>
+          <Title>$140.50</Title>
           <Caption>Wallet</Caption>
         </View>
         <View style={styles.infoBox}>
           <Title>12</Title>
-          <Caption>Orders</Caption>
+          <Caption>Donates</Caption>
         </View>
       </View>
 
@@ -88,25 +88,8 @@ const ProfileScreen = () => {
             <Text style={styles.menuItemText}>Payment</Text>
           </View>
         </TouchableRipple>
-        <TouchableRipple onPress={myCustomShare}>
-          <View style={styles.menuItem}>
-            <Icon name="share-outline" color="#FF6347" size={25} />
-            <Text style={styles.menuItemText}>Tell Your Friends</Text>
-          </View>
-        </TouchableRipple>
-        <TouchableRipple onPress={() => { }}>
-          <View style={styles.menuItem}>
-            <Icon name="account-check-outline" color="#FF6347" size={25} />
-            <Text style={styles.menuItemText}>Support</Text>
-          </View>
-        </TouchableRipple>
-        <TouchableRipple onPress={() => { }}>
-          <View style={styles.menuItem}>
-            <Icon name="cog-outline" color="#FF6347" size={25} />
-            <Text style={styles.menuItemText}>Settings</Text>
-          </View>
-        </TouchableRipple>
       </View>
+      </Background>
     </SafeAreaView>
   );
 };

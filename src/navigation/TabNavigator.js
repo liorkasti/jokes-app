@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View } from 'react-native-animatable';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -7,12 +7,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {
-  StartScreen, LoginScreen, Dashboard, JokeForm, JokeList, BookmarkScreen,
-  CardListScreen, CardItemDetails, DetailsScreen, EditProfileScreen, ExploreScreen,
-  HomeScreen, MapTestScreen, NotificationScreen, RegisterScreen, ProfileScreen,
-  SettingsScreen, SignInScreen, SignUpScreen, SplashScreen, SupportScreen
-} from '../screens'
+import { Dashboard, JokeForm, JokeList, SupportScreen } from '../screens'
 
 const HomeStack = createStackNavigator();
 const NotificationStack = createStackNavigator();
@@ -21,6 +16,7 @@ const ProfileStack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 const TabNavigator = () => (
+
   <Tab.Navigator initialRouteName="Home" activeColor="#fff">
     <Tab.Screen
       name="Home"
@@ -28,20 +24,10 @@ const TabNavigator = () => (
       options={{
         tabBarLabel: 'Home',
         // tabBarColor: '#FF6347',
-        tabBarColor: '#009387',
+        // tabBarColor: '#1f65ff',
+        tabBarColor: '#d02860',
         tabBarIcon: ({ color }) => (
           <Icon name="ios-home" color={color} size={26} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Notifications"
-      component={NotificationStackScreen}
-      options={{
-        tabBarLabel: 'Updates',
-        tabBarColor: '#1f65ff',
-        tabBarIcon: ({ color }) => (
-          <Icon name="ios-notifications" color={color} size={26} />
         ),
       }}
     />
@@ -50,20 +36,9 @@ const TabNavigator = () => (
       component={ProfileStackScreen}
       options={{
         tabBarLabel: 'Profile',
-        tabBarColor: '#694fad',
+        tabBarColor: '#009387',
         tabBarIcon: ({ color }) => (
           <Icon name="ios-person" color={color} size={26} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Explore"
-      component={ExploreScreen}
-      options={{
-        tabBarLabel: 'Explore',
-        tabBarColor: '#d02860',
-        tabBarIcon: ({ color }) => (
-          <Icon name="ios-aperture" color={color} size={26} />
         ),
       }}
     />
@@ -73,6 +48,11 @@ const TabNavigator = () => (
 export default TabNavigator;
 
 const HomeStackScreen = ({ navigation }) => {
+
+  useEffect(() => {
+    // console.log('LOG PARAMS: ' + route.params)
+  }, []);
+
   const { colors } = useTheme();
   return (
     <HomeStack.Navigator
@@ -91,7 +71,7 @@ const HomeStackScreen = ({ navigation }) => {
         name="Home"
         component={Dashboard}
         options={{
-          title: 'Jokes Gallery',
+          title: '',
           headerLeft: () => (
             <View style={{ marginLeft: 10 }}>
               <Icon.Button
@@ -118,10 +98,7 @@ const HomeStackScreen = ({ navigation }) => {
                   navigation.navigate('Profile');
                 }}>
                 <Avatar.Image
-                  source={{
-                    uri:
-                      'https://api.adorable.io/avatars/80/abott@adorable.png',
-                  }}
+                  source={{ uri: 'https://media-exp3.licdn.com/dms/image/C4D35AQFNMbgDHdS0zA/profile-framedphoto-shrink_400_400/0/1595845339359?e=1626706800&v=beta&t=e4BAkd72ohTR1ZnLt4vD3Z5ItdMFabcLbR4xxulwrZQ' }}
                   size={30}
                 />
               </TouchableOpacity>
@@ -129,56 +106,9 @@ const HomeStackScreen = ({ navigation }) => {
           ),
         }}
       />
-      <HomeStack.Screen
-        name="CardListScreen"
-        component={CardListScreen}
-        options={({ route }) => ({
-          title: route.params.title,
-          headerBackTitleVisible: false
-        })}
-      />
-      <HomeStack.Screen
-        name="CardItemDetails"
-        component={CardItemDetails}
-        options={({ route }) => ({
-          // title: route.params.title,
-          headerBackTitleVisible: false,
-          headerTitle: false,
-          headerTransparent: true,
-          headerTintColor: '#fff'
-        })}
-      />
     </HomeStack.Navigator>
   );
 };
-
-const NotificationStackScreen = ({ navigation }) => (
-  <NotificationStack.Navigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: '#1f65ff',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    }}>
-    <NotificationStack.Screen
-      name="Notifications"
-      component={NotificationScreen}
-      options={{
-        headerLeft: () => (
-          <Icon.Button
-            name="ios-menu"
-            size={25}
-            backgroundColor="#1f65ff"
-            onPress={() => navigation.openDrawer()}
-          />
-        ),
-      }}
-    />
-  </NotificationStack.Navigator>
-);
 
 const ProfileStackScreen = ({ navigation }) => {
   const { colors } = useTheme();
@@ -216,18 +146,18 @@ const ProfileStackScreen = ({ navigation }) => {
                 size={25}
                 backgroundColor={colors.background}
                 color={colors.text}
-                onPress={() => navigation.navigate('EditProfile')}
+                onPress={() => navigation.navigate('ProfileScreen')}
               />
             </View>
           ),
         }}
       />
       <ProfileStack.Screen
-        name="EditProfile"
+        name="ProfileScreen"
         options={{
-          title: 'Edit Profile',
+          title: 'Profile',
         }}
-        component={EditProfileScreen}
+        component={ProfileScreen}
       />
     </ProfileStack.Navigator>
   );

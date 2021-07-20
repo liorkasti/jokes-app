@@ -6,7 +6,7 @@ import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { AuthContext } from '../components/context';
-import { StartScreen, LoginScreen, RegisterScreen, Dashboard, JokeList } from '../screens'
+import { Dashboard, JokeForm, JokeList, SupportScreen } from '../screens'
 
 export function DrawerContent(props) {
 
@@ -21,9 +21,7 @@ export function DrawerContent(props) {
                     <View style={styles.userInfoSection}>
                         <View style={{ flexDirection: 'row', marginTop: 15 }}>
                             <Avatar.Image
-                                source={{
-                                    uri: 'https://media-exp3.licdn.com/dms/image/C4D35AQFNMbgDHdS0zA/profile-framedphoto-shrink_400_400/0/1595845339359?e=1626706800&v=beta&t=e4BAkd72ohTR1ZnLt4vD3Z5ItdMFabcLbR4xxulwrZQ'
-                                }}
+                                source={{ uri: 'https://media-exp3.licdn.com/dms/image/C4D35AQFNMbgDHdS0zA/profile-framedphoto-shrink_400_400/0/1595845339359?e=1626706800&v=beta&t=e4BAkd72ohTR1ZnLt4vD3Z5ItdMFabcLbR4xxulwrZQ' }}
                                 size={50}
                             />
                             <View style={{ marginLeft: 15, flexDirection: 'column' }}>
@@ -54,7 +52,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Home"
-                            onPress={() => { props.navigation.navigate('Dashboard') }}
+                            onPress={() => { props.navigation.navigate('HomeDrawer') }}
                         />
                         <DrawerItem
                             icon={({ color, size }) => (
@@ -70,34 +68,12 @@ export function DrawerContent(props) {
                         <DrawerItem
                             icon={({ color, size }) => (
                                 <Icon
-                                    name="bookmark-outline"
+                                    name="heart-outline"
                                     color={color}
                                     size={size}
                                 />
                             )}
-                            label="Bookmarks"
-                            onPress={() => { props.navigation.navigate('BookmarkScreen') }}
-                        />
-                        <DrawerItem
-                            icon={({ color, size }) => (
-                                <Icon
-                                    name="cog-outline"
-                                    color={color}
-                                    size={size}
-                                />
-                            )}
-                            label="Settings"
-                            onPress={() => { props.navigation.navigate('SettingsScreen') }}
-                        />
-                        <DrawerItem
-                            icon={({ color, size }) => (
-                                <Icon
-                                    name="account-check-outline"
-                                    color={color}
-                                    size={size}
-                                />
-                            )}
-                            label="Support"
+                            label="Favorites"
                             onPress={() => { props.navigation.navigate('SupportScreen') }}
                         />
                     </Drawer.Section>
