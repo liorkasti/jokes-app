@@ -34,7 +34,7 @@ export default function JokeList({ route, navigation }) {
           />
         </>
       }
-      <Button
+      {/* <Button
         mode="outlined"
         onPress={() =>
           navigation.reset({
@@ -44,7 +44,7 @@ export default function JokeList({ route, navigation }) {
         }
       >
         Logout
-      </Button>
+      </Button> */}
 
     </Background >
   )

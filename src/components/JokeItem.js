@@ -40,17 +40,17 @@ const JokeItem = (props) => {
   };
 
   const myCustomShare = async () => {
-    if (props.type === 'single') {
-      const shareOptions = {
-        message: `Y! \n ${props.joke}`,
-        url: files.appLogo,
-      }
-    } else {
-      const shareOptions = {
-        message: `Y! \n setup: ${props.setup}\n\n\n delivery: ${props.delivery}`,
-        url: files.appLogo,
-      }
+    // if (props.type === 'single') {
+    const shareOptions = {
+      message: `Yo! \n ${props.joke}`,
+      url: files.appLogo,
     }
+    // } else {
+    //   const shareOptions = await {
+    //     message: `Yo! \n setup: ${props.setup}\n\n\n delivery: ${props.delivery}`,
+    //     url: files.appLogo,
+    //   }
+    // }
 
     try {
       const ShareResponse = await Share.open(shareOptions);
