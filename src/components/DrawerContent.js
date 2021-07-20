@@ -5,8 +5,7 @@ import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { AuthContext } from '../components/context';
-import { Dashboard, JokeForm, JokeList, SupportScreen } from '../screens'
+import { AuthContext } from './context';
 
 export function DrawerContent(props) {
 
@@ -21,7 +20,7 @@ export function DrawerContent(props) {
                     <View style={styles.userInfoSection}>
                         <View style={{ flexDirection: 'row', marginTop: 15 }}>
                             <Avatar.Image
-                                source={{ uri: 'https://media-exp3.licdn.com/dms/image/C4D35AQFNMbgDHdS0zA/profile-framedphoto-shrink_400_400/0/1595845339359?e=1626706800&v=beta&t=e4BAkd72ohTR1ZnLt4vD3Z5ItdMFabcLbR4xxulwrZQ' }}
+                                source={{ uri: 'https://avatars.githubusercontent.com/u/29893163?v=4' }}
                                 size={50}
                             />
                             <View style={{ marginLeft: 15, flexDirection: 'column' }}>

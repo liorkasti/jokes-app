@@ -7,10 +7,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { Dashboard, JokeForm, JokeList, SupportScreen } from '../screens'
+import { Dashboard, JokeForm, JokeList, SupportScreen, ProfileScreen } from '../screens'
 
 const HomeStack = createStackNavigator();
-const NotificationStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
@@ -48,12 +47,8 @@ const TabNavigator = () => (
 export default TabNavigator;
 
 const HomeStackScreen = ({ navigation }) => {
-
-  useEffect(() => {
-    // console.log('LOG PARAMS: ' + route.params)
-  }, []);
-
   const { colors } = useTheme();
+  
   return (
     <HomeStack.Navigator
       screenOptions={{
@@ -98,7 +93,7 @@ const HomeStackScreen = ({ navigation }) => {
                   navigation.navigate('Profile');
                 }}>
                 <Avatar.Image
-                  source={{ uri: 'https://media-exp3.licdn.com/dms/image/C4D35AQFNMbgDHdS0zA/profile-framedphoto-shrink_400_400/0/1595845339359?e=1626706800&v=beta&t=e4BAkd72ohTR1ZnLt4vD3Z5ItdMFabcLbR4xxulwrZQ' }}
+                  source={{ uri: 'https://avatars.githubusercontent.com/u/29893163?v=4' }}
                   size={30}
                 />
               </TouchableOpacity>

@@ -1,37 +1,15 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
-import { CATEGORIES } from '../data/dummy-data';
+import { CATEGORIES } from '../data/joke-categories';
 import Button from './Button'
 
-// const renderGridItem = itemData => {
-//   return (
-//       <Button style={{}} >{itemData.item.title}</Button>
-//   );
-// };
-
 const renderGridItem = itemData => {
-  const isFavorite = favoriteMeals.some(meal => meal.id === itemData.item.id);
   return (
-    <MealItem
-      title={itemData.item.title}
-      image={itemData.item.imageUrl}
-      duration={itemData.item.duration}
-      complexity={itemData.item.complexity}
-      affordability={itemData.item.affordability}
-      onSelectMeal={() => {
-        props.navigation.navigate({
-          routeName: 'MealDetail',
-          params: {
-            mealId: itemData.item.id,
-            mealTitle: itemData.item.title,
-            isFav: isFavorite
-          }
-        });
-      }}
-    />
+      <Button style={{}} >{itemData.title}</Button>
   );
 };
+
 const CategoriesList = props => {
   console.log('log CATEGORIES: ', CATEGORIES)
   return (

@@ -33,7 +33,7 @@ const ProfileScreen = () => {
       <View style={styles.userInfoSection}>
         <View style={{ flexDirection: 'row', marginTop: 15 }}>
           <Avatar.Image
-            source={{ uri: 'https://media-exp3.licdn.com/dms/image/C4D35AQFNMbgDHdS0zA/profile-framedphoto-shrink_400_400/0/1595845339359?e=1626706800&v=beta&t=e4BAkd72ohTR1ZnLt4vD3Z5ItdMFabcLbR4xxulwrZQ', }}
+            source={{ uri: 'https://avatars.githubusercontent.com/u/29893163?v=4', }}
             size={80}
           />
           <View style={{ marginLeft: 20 }}>

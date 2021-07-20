@@ -6,7 +6,7 @@ import { Provider as PaperProvider, DefaultTheme as PaperDefaultTheme, DarkTheme
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { AuthContext } from '../components/context';
-import { DrawerContent } from './DrawerContent';
+import { DrawerContent } from '../components/DrawerContent';
 import TabNavigator from './TabNavigator';
 import RootStackScreen from './RootStackScreen';
 import Background from '../components/Background'
@@ -24,28 +24,6 @@ export default function AppNavigator() {
     userName: null,
     userToken: null,
   };
-
-  const CustomDefaultTheme = {
-    ...NavigationDefaultTheme,
-    ...PaperDefaultTheme,
-    colors: {
-      ...NavigationDefaultTheme.colors,
-      ...PaperDefaultTheme.colors,
-      background: '#ffffff',
-      text: '#333333'
-    }
-  }
-
-  const CustomDarkTheme = {
-    ...NavigationDarkTheme,
-    ...PaperDarkTheme,
-    colors: {
-      ...NavigationDarkTheme.colors,
-      ...PaperDarkTheme.colors,
-      background: '#333333',
-      text: '#ffffff'
-    }
-  }
 
   const theme = isDarkTheme ? CustomDarkTheme : CustomDefaultTheme;
 
@@ -164,4 +142,26 @@ export default function AppNavigator() {
       </AuthContext.Provider>
     </PaperProvider>
   );
+}
+
+const CustomDefaultTheme = {
+  ...NavigationDefaultTheme,
+  ...PaperDefaultTheme,
+  colors: {
+    ...NavigationDefaultTheme.colors,
+    ...PaperDefaultTheme.colors,
+    background: '#ffffff',
+    text: '#333333'
+  }
+}
+
+const CustomDarkTheme = {
+  ...NavigationDarkTheme,
+  ...PaperDarkTheme,
+  colors: {
+    ...NavigationDarkTheme.colors,
+    ...PaperDarkTheme.colors,
+    background: '#333333',
+    text: '#ffffff'
+  }
 }
