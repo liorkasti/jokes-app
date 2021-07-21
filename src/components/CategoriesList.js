@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 import { CATEGORIES } from '../data/joke-categories';
@@ -6,16 +6,26 @@ import Button from './Button'
 
 const renderGridItem = itemData => {
   return (
-      <Button style={{}} >{itemData.title}</Button>
+    <Button style={{}} >{itemData.title}</Button>
   );
 };
 
 const CategoriesList = props => {
-  console.log('log CATEGORIES: ', CATEGORIES)
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    setCategories(CATEGORIES)
+    // console.log('data: ', data);
+    // console.log('single: ', single);
+    // console.log('twopart: ', twopart);
+  }, [])
+
+  console.log('categories: ', categories);
+
   return (
     <FlatList
       keyExtractor={(item, index) => item.id}
-      data={CATEGORIES[1]}
+      data={CATEGORIES}
       renderItem={renderGridItem}
       numColumns={2}
     />

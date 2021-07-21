@@ -39,17 +39,6 @@ export default function Dashboard({ navigation }) {
 
       <CategoriesList />
 
-      {/* <Button
-        mode="outlined"
-        onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'StartScreen' }],
-          })
-        }
-      >
-        Logout
-      </Button> */}
     </Background>
   )
 }
