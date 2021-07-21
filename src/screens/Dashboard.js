@@ -22,7 +22,7 @@ export default function Dashboard({ navigation }) {
 
   return (
     <Background>
-      <StatusBar backgroundColor='#FF6347' barStyle="light-content" />
+      <StatusBar backgroundColor='#009387' barStyle="light-content" />
       <Logo />
       <Header>Jokes Gallery</Header>
       <Button

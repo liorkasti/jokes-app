@@ -11,7 +11,7 @@ import TabNavigator from './TabNavigator';
 import RootStackScreen from './RootStackScreen';
 import Background from '../components/Background'
 
-import { Dashboard, JokeForm, JokeList, SupportScreen } from '../screens'
+import { Dashboard, FavoritesScreen, JokeForm, JokeList, SupportScreen } from '../screens'
 
 // const Stack = createStackNavigator()
 const Drawer = createDrawerNavigator();
@@ -131,6 +131,7 @@ export default function AppNavigator() {
               <Drawer.Screen name="HomeDrawer" component={TabNavigator} />
               <Drawer.Screen name="Dashboard" component={Dashboard} />
               <Drawer.Screen name="SupportScreen" component={SupportScreen} />
+              <Drawer.Screen name="FavoritesScreen" component={FavoritesScreen} />
               <Drawer.Screen name="JokeList" component={JokeList} />
               <Drawer.Screen name="JokeForm" component={JokeForm} />
             </Drawer.Navigator>

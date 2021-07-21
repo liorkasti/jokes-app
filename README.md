@@ -18,13 +18,15 @@ yarn start / npm start
 ```
 
 ###### TODOs: 
-* Test subscriptions validation
-* Add a user subscriptions options
-* Add KeyboardAvoidingView
+* Add nested navigation for joke categories
 * Modify jokes list UI
-* Replace the Joke APP logo
-* Add footerBar selection indication to UI
-* Add AsynchStorage to Joke APP users data
-* Add app splashscreen
-* Debug ActivateIndicator and add style to it
+* Setup Redux state management for users, jokes and favorites
+* Add Favorites jokes logic
+* Add share jokes logic for towparts jokes
+* Add a form for user's jokes
+* Test subscriptions validation
+* Add user subscriptions options via firebase
+* Fix Statusbar colors
+* Add custom Background to all screens
+* Add local storage
 

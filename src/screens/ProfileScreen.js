@@ -28,7 +28,7 @@ const ProfileScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor='#009387' barStyle="light-content" />
+      <StatusBar backgroundColor='#694fad' barStyle="light-content" />
       <Background>
       <View style={styles.userInfoSection}>
         <View style={{ flexDirection: 'row', marginTop: 15 }}>

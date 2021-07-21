@@ -34,18 +34,6 @@ export default function JokeList({ route, navigation }) {
           />
         </>
       }
-      {/* <Button
-        mode="outlined"
-        onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'StartScreen' }],
-          })
-        }
-      >
-        Logout
-      </Button> */}
-
     </Background >
   )
 }

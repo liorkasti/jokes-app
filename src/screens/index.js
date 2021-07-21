@@ -8,6 +8,7 @@ export { default as RegisterScreen } from './RegisterScreen'
 export { default as SignInScreen } from './SignInScreen'
 export { default as SignUpScreen } from './SignUpScreen'
 export { default as SplashScreen } from './SplashScreen'
+export { default as FavoritesScreen } from './FavoritesScreen'
 export { default as SupportScreen } from './SupportScreen'
 
 
