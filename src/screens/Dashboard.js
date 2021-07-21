@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Image, StyleSheet, StatusBar } from 'react-native'
+import { StatusBar } from 'react-native'
 
 import useFetch from '../hooks/useFetch';
 import Background from '../components/Background'
@@ -42,11 +42,3 @@ export default function Dashboard({ navigation }) {
     </Background>
   )
 }
-
-const styles = StyleSheet.create({
-  image: {
-    width: 110,
-    height: 110,
-    marginBottom: 12,
-  },
-})

@@ -1,33 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet, Platform } from 'react-native';
 
 import { CATEGORIES } from '../data/joke-categories';
 import Button from './Button'
 
-const renderGridItem = itemData => {
-  return (
-    <Button style={{}} >{itemData.title}</Button>
-  );
-};
-
 const CategoriesList = props => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    setCategories(CATEGORIES)
-    // console.log('data: ', data);
-    // console.log('single: ', single);
-    // console.log('twopart: ', twopart);
-  }, [])
-
-  console.log('categories: ', categories);
 
   return (
     <FlatList
-      keyExtractor={(item, index) => item.id}
-      data={CATEGORIES}
-      renderItem={renderGridItem}
+    keyExtractor={(item, index) => item.id}
+    data={CATEGORIES}
+      renderItem={(item) => {
+        // console.log(`item: ${item.item.id}`, item);
+
+        return (
+          <Button mode="outlined" style={styles.gridItem} >{item.item.title}</Button>
+        )
+      }}
       numColumns={2}
+      style={styles.screen}
     />
   );
 };
@@ -35,13 +26,18 @@ const CategoriesList = props => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    width: '120%',    
   },
   gridItem: {
     flex: 1,
-    margin: 15,
-    height: 50
+    margin: 4,
+    height: 50,
+    borderRadius: 10,
+    overflow:
+      Platform.OS === 'android' && Platform.Version >= 21
+        ? 'hidden'
+        : 'visible',
+    elevation: 5,
   }
 });
 
